@@ -8,6 +8,9 @@ export const REVIEW_TYPES = {
   puzzle: { label: 'Thế cờ', icon: '🧩', href: () => '#/puzzles/review' },
   calc: { label: 'Tính nước', icon: '🧠', href: () => '#/calc/review' },
   scan: { label: 'Quét nguy hiểm', icon: '🔍', href: () => '#/scan' },
+  xqpuzzle: { label: 'Thế cờ tướng', icon: '🧩', href: () => '#/xq-puzzles/review' },
+  xqcalc: { label: 'Tính nước cờ tướng', icon: '🧠', href: () => '#/xq-calc/review' },
+  xqscan: { label: 'Cờ tướng: quét nguy hiểm', icon: '🔍', href: () => '#/xq-scan' },
   alg: { label: 'Công thức Rubik', icon: '🧊', href: () => '#/algs/review' },
   lesson: { label: 'Bài học', icon: '📘', href: (r) => `#/learn/${r.refId}` },
 }
