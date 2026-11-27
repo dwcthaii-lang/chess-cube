@@ -29,9 +29,10 @@ export default function Settings() {
         <div className="label">Giao diện</div>
         <div className="flex flex-wrap gap-2">{[['light', '☀️ Sáng'], ['dark', '🌙 Tối'], ['system', '🖥️ Theo máy']].map(([k, l]) => <button key={k} onClick={() => set({ theme: k })} className={s.theme === k ? 'btn-primary' : 'btn-ghost'}>{l}</button>)}</div>
       </div>
-      <div className="card grid gap-4 sm:grid-cols-3">
+      <div className="card grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Field label={`Mục tiêu mỗi ngày: ${s.dailyGoalMin} phút`}><input type="range" min="10" max="90" step="5" value={s.dailyGoalMin} onChange={(e) => set({ dailyGoalMin: Number(e.target.value) })} className="w-full" /></Field>
         <Field label={`Thế cờ MỚI/ngày: ${s.newPuzzlesPerDay}`} hint="Bài ôn luôn được ưu tiên trước"><input type="range" min="3" max="40" value={s.newPuzzlesPerDay} onChange={(e) => set({ newPuzzlesPerDay: Number(e.target.value) })} className="w-full" /></Field>
+        <Field label={`Thế cờ tướng MỚI/ngày: ${s.newXqPerDay ?? 10}`} hint="Bài ôn luôn được ưu tiên trước"><input type="range" min="3" max="40" value={s.newXqPerDay ?? 10} onChange={(e) => set({ newXqPerDay: Number(e.target.value) })} className="w-full" /></Field>
         <Field label={`Công thức Rubik MỚI/ngày: ${s.newAlgsPerDay}`} hint="2–4 là vừa để nhớ lâu"><input type="range" min="1" max="10" value={s.newAlgsPerDay} onChange={(e) => set({ newAlgsPerDay: Number(e.target.value) })} className="w-full" /></Field>
       </div>
       <div className="card space-y-3">
@@ -54,6 +55,7 @@ export default function Settings() {
       </div>
       <div className="card text-xs text-slate-500 space-y-1">
         <div>Máy cờ: Stockfish 19 (GPL-3, bản WASM của nmrugg/stockfish.js). Bàn cờ: Chessground (Lichess, GPL-3). Quân cờ: bộ cburnett. Thế cờ online: Lichess puzzle API (CC0).</div>
+        <div>Cờ tướng: luật, ký hiệu và máy đánh tự viết (src/lib/xiangqi.js); thế cờ sinh bằng máy, chiếu hết được kiểm tra vét cạn.</div>
         <div>Rubik: cubing.js (xáo chuẩn WCA & khối 3D).</div>
       </div>
     </div>

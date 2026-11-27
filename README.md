@@ -1,6 +1,6 @@
 # ♟️ Cờ & Rubik 🧊 – Luyện trí não mỗi ngày
 
-Web luyện **cờ vua** và **Rubik 2x2 / 3x3 / 4x4**. Mọi bài đều có ôn tập lặp lại ngắt quãng: bài làm sai quay lại sớm, bài đã chắc thì giãn dần.
+Web luyện **cờ vua**, **cờ tướng** và **Rubik 2x2 / 3x3 / 4x4**. Mọi bài đều có ôn tập lặp lại ngắt quãng: bài làm sai quay lại sớm, bài đã chắc thì giãn dần.
 
 ## Chạy app
 - Online: `https://dwcthaii-lang.github.io/<tên-repo>/`
@@ -13,6 +13,16 @@ Web luyện **cờ vua** và **Rubik 2x2 / 3x3 / 4x4**. Mọi bài đều có ô
 | 🧩 **Thế cờ chiến thuật** | 240 bài có sẵn (offline) + Lichess không giới hạn (cần mạng). Có chủ đề: chiếu hết, ăn quân treo, chĩa đôi, ghim… |
 | 🧠 **Luyện tính nước** | Bàn cờ đứng yên, phải tự tính cả chuỗi 2–3 nước, kể cả nước đáp của đối phương. |
 | 🤖 **Đánh với máy** | Stockfish 8 mức. "Kiểm tra trước khi đi" cảnh báo khi bạn sắp đi nước hớ. Sau ván có phân tích, và nước hớ tự thành bài ôn. |
+
+## Cờ tướng
+Cùng 4 phần như cờ vua, giao diện tiếng Việt, ký hiệu nước kiểu Việt Nam (P2-5, M8.7…), chữ trên quân chọn được tiếng Việt hoặc chữ Hán.
+
+| Phần | Luyện gì |
+|---|---|
+| 🔍 **Quét nguy hiểm** | Đánh dấu quân mình bị treo, điểm đối phương chiếu được (Pháo qua ngòi, Mã, Xe…), quân đối phương ăn được có lợi. |
+| 🧩 **Thế cờ chiến thuật** | Bộ bài có sẵn (offline): chiếu hết 1–3 nước, ăn quân treo, đòn đôi… Bài chiếu hết chấp nhận mọi cách chiếu hết đúng. |
+| 🧠 **Luyện tính nước** | Bàn cờ đứng yên, tự tính chuỗi 3–5 nước kể cả nước đáp. |
+| 🤖 **Đánh với máy** | 8 mức (mức thấp cố tình đi lỏng cho người mới). Cảnh báo nước hớ, phân tích sau ván, nước hớ thành bài ôn. |
 
 ## Rubik
 | Phần | Luyện gì |

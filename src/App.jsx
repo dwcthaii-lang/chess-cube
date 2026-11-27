@@ -8,6 +8,10 @@ import Scan from './modules/Scan'
 import Puzzles from './modules/Puzzles'
 import Calc from './modules/Calc'
 import Play from './modules/Play'
+import XqScan from './modules/xq/XqScan'
+import XqPuzzles from './modules/xq/XqPuzzles'
+import XqCalc from './modules/xq/XqCalc'
+import XqPlay from './modules/xq/XqPlay'
 import Timer from './modules/Timer'
 import Learn from './modules/Learn'
 import Algs from './modules/Algs'
@@ -19,8 +23,13 @@ const NAV = [
   { group: '♟️ Cờ vua' },
   { path: 'scan', label: 'Quét nguy hiểm', short: 'Quét', icon: '🔍', main: true },
   { path: 'puzzles', label: 'Thế cờ chiến thuật', short: 'Thế cờ', icon: '🧩', main: true },
-  { path: 'calc', label: 'Luyện tính nước', short: 'Tính nước', icon: '🧠' },
-  { path: 'play', label: 'Đánh với máy', short: 'Đánh máy', icon: '🤖' },
+  { path: 'calc', label: 'Luyện tính nước', more: 'Cờ vua · Tính nước', short: 'Tính nước', icon: '🧠' },
+  { path: 'play', label: 'Đánh với máy', more: 'Cờ vua · Đánh với máy', short: 'Đánh máy', icon: '🤖' },
+  { group: '🏮 Cờ tướng' },
+  { path: 'xq-scan', label: 'Quét nguy hiểm', more: 'Cờ tướng · Quét nguy hiểm', icon: '🔍' },
+  { path: 'xq-puzzles', label: 'Thế cờ chiến thuật', more: 'Cờ tướng · Thế cờ', icon: '🧩' },
+  { path: 'xq-calc', label: 'Luyện tính nước', more: 'Cờ tướng · Tính nước', icon: '🧠' },
+  { path: 'xq-play', label: 'Đánh với máy', more: 'Cờ tướng · Đánh với máy', icon: '🤖' },
   { group: '🧊 Rubik' },
   { path: 'timer', label: 'Bấm giờ', short: 'Bấm giờ', icon: '⏱️', main: true },
   { path: 'learn', label: 'Học Rubik', short: 'Học Rubik', icon: '📘' },
@@ -28,7 +37,7 @@ const NAV = [
   { group: '' },
   { path: 'settings', label: 'Cài đặt', short: 'Cài đặt', icon: '⚙️' },
 ]
-const CHESS = ['scan', 'puzzles', 'calc', 'play']
+const CHESS = ['scan', 'puzzles', 'calc', 'play', 'xq-scan', 'xq-puzzles', 'xq-calc', 'xq-play'] // cờ tướng tính chung thời gian luyện cờ
 const CUBE = ['timer', 'learn', 'algs']
 
 function useHashRoute() {
@@ -106,6 +115,10 @@ export default function App() {
     case 'puzzles': content = <Puzzles key={param || 'x'} mode={param} />; break
     case 'calc': content = <Calc key={param || 'x'} mode={param} />; break
     case 'play': content = <Play />; break
+    case 'xq-scan': content = <XqScan />; break
+    case 'xq-puzzles': content = <XqPuzzles key={param || 'x'} mode={param} />; break
+    case 'xq-calc': content = <XqCalc key={param || 'x'} mode={param} />; break
+    case 'xq-play': content = <XqPlay />; break
     case 'timer': content = <Timer />; break
     case 'learn': content = <Learn key={param || 'x'} id={param} />; break
     case 'algs': content = <Algs key={param || 'x'} mode={param} />; break
@@ -135,7 +148,7 @@ export default function App() {
       {moreOpen && (
         <div className="md:hidden fixed inset-0 z-30 bg-black/30" onClick={() => setMoreOpen(false)}>
           <div className="absolute bottom-16 inset-x-3 rounded-2xl bg-white p-2 shadow-xl" onClick={(e) => e.stopPropagation()}>
-            {items.filter((n) => !n.main).map((n) => <a key={n.path} href={`#/${n.path}`} className="flex items-center gap-3 rounded-xl px-4 py-3 text-base hover:bg-slate-50"><span>{n.icon}</span>{n.label}</a>)}
+            {items.filter((n) => !n.main).map((n) => <a key={n.path} href={`#/${n.path}`} className="flex items-center gap-3 rounded-xl px-4 py-3 text-base hover:bg-slate-50"><span>{n.icon}</span>{n.more || n.label}</a>)}
           </div>
         </div>
       )}

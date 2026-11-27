@@ -13,6 +13,10 @@ export const defaultSettings = {
   puzzleSource: 'mix', // 'local' | 'lichess' | 'mix'
   engineLevel: 3, // 1–8: độ mạnh máy khi đánh
   blunderCheck: true, // hỏi lại khi định đi nước hớ (đánh với máy)
+  newXqPerDay: 10, // cờ tướng: số thế cờ MỚI tối đa/ngày
+  xqLevel: 2, // cờ tướng: độ mạnh máy 1–8
+  xqBlunderCheck: true, // cờ tướng: hỏi lại khi định đi nước hớ
+  xqPieceStyle: 'viet', // chữ trên quân cờ tướng: 'viet' | 'han'
   boardTheme: 'brown',
   inspection: true, // 15 giây quan sát trước khi bấm giờ Rubik
 }
@@ -23,6 +27,9 @@ const initial = {
   puzzles: {}, // id -> { attempts, solved, lastAt, data (thế cờ tải từ Lichess) }
   scans: { n: 0, ok: 0 }, // thống kê quét nguy hiểm
   games: [], // ván đánh với máy: { at, result, level, blunders, pgn }
+  xqPuzzles: {}, // cờ tướng: id -> { attempts, solved, lastAt, data (nước hớ của bạn) }
+  xqScans: { n: 0, ok: 0 }, // cờ tướng: thống kê quét nguy hiểm
+  xqGames: [], // cờ tướng: ván với máy { at, color, level, result, moves, blunders }
   solves: { '222': [], '333': [], '444': [] }, // giải Rubik: { t (ms), penalty: ''|'+2'|'DNF', scramble, at }
   algs: {}, // công thức Rubik: id -> { learnedAt }
   lessons: {}, // bài học đã hoàn thành: id -> date

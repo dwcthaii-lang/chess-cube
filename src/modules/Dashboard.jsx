@@ -14,10 +14,12 @@ export default function Dashboard() {
   const max = Math.max(goal, ...days.map((d) => fmtMin(s.time[d]?.total)), 1)
   const streak = (() => { let n = 0; for (const d of [...lastNDays(60)].reverse()) { if (fmtMin(s.time[d]?.total) >= 5) n++; else if (d !== today()) break } return n })()
   const puzzleRevs = Object.values(s.reviews).filter((r) => r.type === 'puzzle')
+  const xqRevs = Object.values(s.reviews).filter((r) => r.type === 'xqpuzzle')
   const plan = [
     ['📅', 'Ôn tập hôm nay', due.length ? `${due.length} mục đến hạn` : 'Đã xong ✓', '#/review', !due.length],
     ['🔍', 'Quét nguy hiểm 5 thế', s.reviews['scan:daily']?.last === today() ? 'Đã làm ✓' : '≈ 5 phút', '#/scan', s.reviews['scan:daily']?.last === today()],
     ['🧩', 'Thế cờ mới', `${s.settings.newPuzzlesPerDay} bài/ngày`, '#/puzzles', false],
+    ['🏮', 'Cờ tướng: quét 5 thế + thế cờ mới', s.reviews['xqscan:daily']?.last === today() ? 'Đã quét ✓' : '≈ 10 phút', '#/xq-scan', s.reviews['xqscan:daily']?.last === today()],
     ['⏱️', 'Rubik: 12 lần bấm giờ (ao12)', `${(s.solves['333'] || []).filter((x) => new Date(x.at).toDateString() === new Date().toDateString()).length}/12 hôm nay`, '#/timer', false],
   ]
   return (
@@ -53,6 +55,7 @@ export default function Dashboard() {
           <div>🧩 Thế cờ đã làm: <b>{puzzleRevs.length}</b> · đúng lần gần nhất: <b>{puzzleRevs.filter((r) => r.log[r.log.length - 1]?.g >= 4).length}</b></div>
           <div>🔍 Quét nguy hiểm: <b>{s.scans.n}</b> thế · đúng hoàn toàn <b>{s.scans.ok}</b></div>
           <div>🤖 Ván với máy: <b>{s.games.length}</b> · thắng <b>{s.games.filter((g) => g.result.startsWith('Thắng')).length}</b></div>
+          <div>🏮 Cờ tướng: thế cờ <b>{xqRevs.length}</b> · quét <b>{s.xqScans.n}</b> thế · ván với máy <b>{s.xqGames.length}</b> (thắng <b>{s.xqGames.filter((g) => g.result.startsWith('Thắng')).length}</b>)</div>
           {['333', '222', '444'].map((e) => (s.solves[e] || []).length > 0 && <div key={e}>🧊 {e[0]}x{e[0]}: ao5 <b>{fmt(aoN(s.solves[e], 5))}</b> · ao12 <b>{fmt(aoN(s.solves[e], 12))}</b> · {s.solves[e].length} lần</div>)}
           <div>📘 Bài học Rubik đã học: <b>{Object.keys(s.lessons).length}</b>/10</div>
         </div>

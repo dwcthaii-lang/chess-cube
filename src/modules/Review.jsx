@@ -1,4 +1,4 @@
-// ÔN TẬP HÔM NAY: gom mọi mục đến hạn (thế cờ, tính nước, quét nguy hiểm, công thức Rubik, bài học)
+// ÔN TẬP HÔM NAY: gom mọi mục đến hạn (thế cờ, tính nước, quét nguy hiểm – cờ vua & cờ tướng, công thức Rubik, bài học)
 import { useStore } from '../lib/store'
 import { REVIEW_TYPES, dueReviews } from '../lib/review'
 import { today, addDays, daysBetween } from '../lib/date'
@@ -7,6 +7,8 @@ import { PageHeader } from '../components/ui'
 const GROUPS = [
   ['puzzle', '🧩 Ôn thế cờ', 'giải lại các bài từng sai / nước hớ của bạn', '#/puzzles/review'],
   ['calc', '🧠 Ôn tính nước', 'tính lại chuỗi nước', '#/calc/review'],
+  ['xqpuzzle', '🧩 Ôn thế cờ tướng', 'giải lại các bài cờ tướng từng sai / nước hớ của bạn', '#/xq-puzzles/review'],
+  ['xqcalc', '🧠 Ôn tính nước cờ tướng', 'tính lại chuỗi nước', '#/xq-calc/review'],
   ['alg', '🧊 Ôn công thức Rubik', 'nhìn trường hợp → nhớ công thức', '#/algs/review'],
 ]
 
@@ -24,7 +26,7 @@ export default function Review() {
       {due.length === 0 ? (
         <div className="card mb-4">
           <div className="text-lg font-semibold">✅ Không còn gì cần ôn hôm nay!</div>
-          <div className="mt-3 flex flex-wrap gap-2"><a className="btn-primary" href="#/scan">🔍 Quét nguy hiểm</a><a className="btn-ghost" href="#/puzzles">🧩 Thế cờ mới</a><a className="btn-ghost" href="#/learn">📘 Học Rubik</a></div>
+          <div className="mt-3 flex flex-wrap gap-2"><a className="btn-primary" href="#/scan">🔍 Quét nguy hiểm</a><a className="btn-ghost" href="#/puzzles">🧩 Thế cờ mới</a><a className="btn-ghost" href="#/xq-puzzles">🏮 Thế cờ tướng</a><a className="btn-ghost" href="#/learn">📘 Học Rubik</a></div>
         </div>
       ) : (
         <div className="card mb-4 space-y-3">
