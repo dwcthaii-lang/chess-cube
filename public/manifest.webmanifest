@@ -1,0 +1,16 @@
+{
+  "name": "Cờ & Rubik – Luyện trí não",
+  "short_name": "Cờ & Rubik",
+  "description": "Luyện cờ vua (quét nguy hiểm, thế cờ, tính nước, đánh với máy) và Rubik 2x2/3x3/4x4 có ôn tập lặp lại ngắt quãng",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "lang": "vi",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
